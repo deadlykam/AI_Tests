@@ -122,8 +122,9 @@ public class AI_1 : MonoBehaviour {
         float distance = Vector3.Distance(transform.position, target.transform.position);
 
         RaycastHit hit;
-        Vector3 newPos = transform.TransformPoint(-Vector3.forward * 0.0f); // for moving the origin point of the ray.
-        newPos = new Vector3(newPos.x + x, newPos.y, newPos.z); // If any changes needed to be done.
+        // Vector3 newPos = transform.TransformPoint(-Vector3.forward * 0.0f); // for moving the origin point of the ray.
+        Vector3 newPos = transform.TransformPoint(Vector3.right * x); // for moving the origin point of the ray sideways.
+        newPos = new Vector3(newPos.x, newPos.y, newPos.z); // If any changes needed to be done.
         Vector3 dir = Quaternion.AngleAxis(0, transform.up) * transform.forward * distance;
         Ray ray = new Ray(newPos, dir);
         Debug.DrawRay(newPos, dir);
